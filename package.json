@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
@@ -14,6 +13,9 @@
     "jest": "^29.7.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "@types/jest": "^29.5.13",
+    "cross-env": "^7.0.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
   }
 }
