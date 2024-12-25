@@ -17,14 +17,16 @@ test("sum 함수가 1,2와 함께 호출 되었다.", () => {
   expect(sumSpy).toHaveBeenCalledWith(1, 2);
 });
 
-test("obj 함수가 1 번 호출 되었다.", () => {
+test("obj 메서드가 1 번 호출 되었다.", () => {
   const objSpy = jest.fn(obj.minus);
   objSpy(1, 2);
   expect(objSpy).toHaveBeenCalledTimes(1);
 });
 
-test("obj 함수가 1,2와 함꼐 호출 되었다.", () => {
+test("obj 메서드가 1,2와 함꼐 호출 되었다.", () => {
   jest.spyOn(obj, "minus");
-  obj.minus(1, 2);
+  const result = obj.minus(1, 2);
+  console.log(obj.minus);
   expect(obj.minus).toHaveBeenCalledTimes(1);
+  expect(result).toBe(-1);
 });
