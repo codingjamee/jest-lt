@@ -8,7 +8,11 @@ beforeAll(() => {
 beforeEach(() => {
   console.log("각 테스트 전에 실행");
 
-  jest.clearAllMocks();
+  //jest 한꺼번에 이 파일의 모든 초기화 실행
+  jest.clearAllMocks(); //with, times초기화
+  jest.resetAllMocks(); //mockImplementation 빈함수
+  jest.restoreAllMocks(); //spy자체를 없애버림
+  jest.clearAllMocks(); 
 });
 afterEach(() => {
   console.log("각 테스트 후에 실행");
