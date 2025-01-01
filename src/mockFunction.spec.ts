@@ -1,7 +1,20 @@
 import { obj } from "./mockFunction";
 
+// test 라이프사이클
+beforeAll(() => {
+  console.log("이 파일의 준비사항 실행"); //db연결 등
+});
+
 beforeEach(() => {
+  console.log("각 테스트 전에 실행");
+
   jest.clearAllMocks();
+});
+afterEach(() => {
+  console.log("각 테스트 후에 실행");
+});
+afterAll(() => {
+  console.log("모든 테스트 끝난 후 실행");
 });
 
 test("obj 메서드가 1번 호출 되었다. mockFunction", () => {
@@ -12,7 +25,7 @@ test("obj 메서드가 1번 호출 되었다. mockFunction", () => {
   expect(result).toBe(-1);
   // spyFn.mockClear(); //calledWith만 초기화
   // spyFn.mockReset(); //obj.minus가 빈 함수로 돌아감 (mockClear + mockImplementation(()=>{}) 과 동일)
-  // spyFn.mockRestore(); ///아예 전부 없애버림. 
+  // spyFn.mockRestore(); ///아예 전부 없애버림.
 });
 
 test("obj.minus에 스파이를 심고 실행도 안되게", () => {
