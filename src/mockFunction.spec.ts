@@ -5,11 +5,14 @@ beforeEach(() => {
 });
 
 test("obj 메서드가 1번 호출 되었다. mockFunction", () => {
-  jest.spyOn(obj, "minus");
+  const spyFn = jest.spyOn(obj, "minus");
   const result = obj.minus(1, 2);
   console.log(obj.minus);
   expect(obj.minus).toHaveBeenCalledTimes(1);
   expect(result).toBe(-1);
+  // spyFn.mockClear(); //calledWith만 초기화
+  // spyFn.mockReset(); //obj.minus가 빈 함수로 돌아감 (mockClear + mockImplementation(()=>{}) 과 동일)
+  // spyFn.mockRestore(); ///아예 전부 없애버림. 
 });
 
 test("obj.minus에 스파이를 심고 실행도 안되게", () => {
