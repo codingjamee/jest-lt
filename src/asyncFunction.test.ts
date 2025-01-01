@@ -12,6 +12,11 @@ test("okPromise테스트 then", () => {
   });
 });
 
+test("okPromise spy함수 심기", () => {
+  jest.spyOn(fns, "okPromise").mockResolvedValue("ok"); //once도 가능
+  return expect(fns.okPromise()).resolves.toBe("ok");
+});
+
 test("okPromise await 테스트", async () => {
   const okSpy = jest.fn(fns.okPromise);
   const result = await okSpy();
