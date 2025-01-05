@@ -8,7 +8,7 @@ jest.mock("./module", () => {
   return {
     ...jest.requireActual("./module"),
     obj: {
-      ...jest.requireActual("./module"),
+      ...jest.requireActual("./module").obj,
       method3() {
         return "method3";
       },
